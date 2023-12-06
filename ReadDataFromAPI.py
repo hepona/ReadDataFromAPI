@@ -20,7 +20,7 @@ iot_hub_client = mqtt.Client()
 iot_hub_client.username_pw_set(username, password)
 iot_hub_client.connect(iot_hub, port)
 iot_hub_client.loop_start() # start the MQTT client's network loop
-print("Connected to iot_hub")
+print("---Connected to iot_hub---")
 
 while True:
     # Vérifier que le nom de la ville à été saisie
@@ -56,7 +56,7 @@ while True:
             iot_hub_client.publish(topic, data_out, 0)
             print(data_out)
 
-            time.sleep(3)
+            time.sleep(1)
         else:
             # dans le cas où la ville n'existe pas
             print(f"Erreur {resp.status_code}: {data.get('message', 'Erreur inconnue')}")
