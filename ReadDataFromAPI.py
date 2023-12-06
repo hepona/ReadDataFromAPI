@@ -48,8 +48,9 @@ while True:
             print("{} temperature: {:.2f}°C, Humidity: {}%, wind speed: {}km/h".format(m1.name, m1.temptocels(), m1.hum, m1.wspeed))
 
             d = dict()
+            d["City"] = str(m1.name)
             d["temperature"] = float(m1.temptocels())
-            d["humidity"] = float(m1.hum) 
+            d["humidity"] = float(m1.hum)
             d["wind_speed"] = float(m1.wspeed)
             data_out = json.dumps(d)
             iot_hub_client.publish(topic, data_out, 0)
