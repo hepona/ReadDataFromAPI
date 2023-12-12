@@ -43,10 +43,10 @@ Install the following libraries
 
 Run the program
 ```bash
-  ./ReadDataFromAPI <city>
+  ./ReadDataFromAPI.py <city>
 ```
 or
 ```bash
-  python3 ReadDataFromAPI <city>
+  python3 ReadDataFromAPI.py <city>
 ```
 
