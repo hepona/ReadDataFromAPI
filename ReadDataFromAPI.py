@@ -63,12 +63,14 @@ while True:
     data = resp.json()
     if resp.status_code == 200:
         # if the city exist (code statue == 200) stock data in variable
+        print(data)
         temp = data["main"]["temp"]
         hum = data["main"]["humidity"]
         wspeed = data["wind"]["speed"]
+        wdirection = data["wind"]["deg"]
         city = data["name"]
         # create object m1 from Meteoapi class and pirnt in the shell
-        m1 = Meteoapi(temp, hum, wspeed, city)
+        m1 = Meteoapi(temp, hum, wspeed, wdirection, city)
         print("Your city: {}".format(m1.name))
         print(
             "{} temperature: {:.2f}°C, Humidity: {}%, wind speed: {}km/h".format(
@@ -80,7 +82,8 @@ while True:
         d["City"] = str(m1.name)
         d["temperature"] = float(m1.temptocels())
         d["humidity"] = float(m1.hum)
-        d["wind_speed"] = float(m1.wspeed)
+        d["speed"] = float(m1.wspeed)
+        d["direction"] = float(m1.wdirection)
         data_out = json.dumps(d)
         # send the data dictionnary to Thingboard
         iot_hub_client.publish(topic, data_out, 0)
