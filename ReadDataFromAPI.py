@@ -89,7 +89,7 @@ while True:
         d["speed"] = float(m1.wspeed + random)
         d["direction"] = float(m1.wdirection + random)
         data_out = json.dumps(d)
-        # send the data dictionnary to Thingboard
+        # send the data dictionnary to Thingboardd
         iot_hub_client.publish(topic, data_out, 0)
         print(data_out)
 
