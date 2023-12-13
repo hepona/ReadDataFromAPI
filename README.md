@@ -36,7 +36,7 @@ Install the following libraries
 
 ```bash
   pip install requests
-  pip install dotenv
+  pip install python-dotenv
   pip install paho-mqtt
   pip install jsonlib
 ```
