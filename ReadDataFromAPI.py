@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+# Biblothèque pour avoir des valeur plus variable
+from random import uniform
+
 # Bibliothèque pour effectuer des requêtes HTTP
 import requests
 
@@ -78,12 +81,13 @@ while True:
             )
         )
         # create a dictionary with  all the data gotten from openweathermap
+        random = uniform(-1,1)
         d = dict()
         d["City"] = str(m1.name)
-        d["temperature"] = float(m1.temptocels())
-        d["humidity"] = float(m1.hum)
-        d["speed"] = float(m1.wspeed)
-        d["direction"] = float(m1.wdirection)
+        d["temperature"] = float(m1.temptocels() + random)
+        d["humidity"] = float(m1.hum + random)
+        d["speed"] = float(m1.wspeed + random)
+        d["direction"] = float(m1.wdirection + random)
         data_out = json.dumps(d)
         # send the data dictionnary to Thingboard
         iot_hub_client.publish(topic, data_out, 0)
